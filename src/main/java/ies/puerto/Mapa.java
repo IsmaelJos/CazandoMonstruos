@@ -2,7 +2,7 @@ package ies.puerto;
 
 public class Mapa {
     private String[][] map;
-    private static int size = 5;
+    private static int size = 10;
 
     public Mapa() {
         this.map = new String[size][size]; // Inicializamos el mapa con ceros
@@ -90,6 +90,7 @@ public class Mapa {
         int x = (int) (Math.random() * size);
         int y = (int) (Math.random() * size);
         if (this.map[x][y].equals(" S ")) {
+            map[x][y] = " * ";
 
             System.out.println(cazador.getNombre() + " a conseguido un poder");
             moverCazador(cazador);
