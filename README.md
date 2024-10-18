@@ -44,3 +44,7 @@
         cazador2 ha atrapado 1 monstruos
     ```
 
+
+
+### [Version 2](https://github.com/IsmaelJos/CazandoMonstruos/tree/V2)
+
