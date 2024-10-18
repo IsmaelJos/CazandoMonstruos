@@ -73,7 +73,6 @@ public class Mapa {
             
         }if (this.map[x][y].equals(" C ")) {
             moverCazador(cazador);
-            return false;
         }
         return false;
         
