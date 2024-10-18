@@ -69,7 +69,6 @@
     El juego comenzara y cada cierto tiempo los monstruos se moveran de casilla mientras que los cazadores no paran de buscar por todos lados a los monstruos,
     mientras se ejecuta el programa puede aparecer un PoweUp que pueden recojer los cazadores para buscar mas rapido, se representa con una "S".
 
-        ```
             Se ha añadido un powerUp al mapa
             *  *  *  *  *  *  *  *  *  *  
             *  *  *  *  *  *  *  *  *  *  
@@ -81,11 +80,9 @@
             *  *  *  *  *  S  *  *  *  *  
             *  *  *  *  *  *  *  *  *  *  
             *  *  *  *  *  *  *  *  *  *  
-        ```
 
     Si un monstruo se mueve se mostrara una alerta.
 
-        ```
             monstruo1 ha cambiado de sitio
             *  *  *  *  *  *  *  *  *  *  
             *  *  *  *  *  *  *  *  *  *  
@@ -97,11 +94,9 @@
             *  *  *  *  *  S  *  *  M  C  
             *  *  *  *  *  *  *  *  *  *  
             *  *  *  C  *  *  *  *  *  * 
-        ```
 
     Cuando encuentre un cazador a un monstruo se mostrara la posicion de los cazadores y el monstruo restante.
 
-        ```
             cazador1 ha atrapado un monstruo
             *  *  *  *  *  *  *  *  *  *  
             *  *  *  *  *  *  *  *  *  *  
@@ -113,12 +108,9 @@
             *  C  *  *  *  *  *  *  *  *  
             *  *  *  S  *  *  *  *  *  *  
             *  *  *  *  *  *  *  *  *  *  
-        ```
     
     En el momento en el que termine el tiempo establecido en el codigo el programa terminara mostrando cuantos monstruos han sido capturados.
 
-    ```
         cazador1 ha atrapado 0 monstruos
         cazador2 ha atrapado 1 monstruos
-    ```
     
