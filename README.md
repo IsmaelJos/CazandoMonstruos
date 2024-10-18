@@ -39,7 +39,7 @@
     En el momento en el que termine el tiempo establecido en el codigo el programa terminara mostrando cuantos monstruos han sido capturados
 
     ```
-    cazador1 ha atrapado 0 monstruos
-    cazador2 ha atrapado 1 monstruos
+        cazador1 ha atrapado 0 monstruos
+        cazador2 ha atrapado 1 monstruos
     ```
 
