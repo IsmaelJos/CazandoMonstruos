@@ -11,7 +11,7 @@ public class JuegoCazadores {
         boolean finalizar = false;
         
         Mapa mapa = new Mapa();
-
+        
         ExecutorService threadPool = Executors.newFixedThreadPool(1);
 
         Runnable evento = new EventoAleatorio(mapa);
@@ -35,7 +35,7 @@ public class JuegoCazadores {
 
         hiloMonstruo1.start();
         hiloMonstruo2.start();
-
+        
         while(!finalizar){
             if(System.currentTimeMillis() - tiempoInicio >= tiempoMaximo) {
 
@@ -49,5 +49,6 @@ public class JuegoCazadores {
                 finalizar = true;
             }
         }
+        
     }
 }

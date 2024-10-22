@@ -1,22 +1,25 @@
 package ies.puerto;
 
+import java.util.concurrent.Semaphore;
+
 public class Mapa {
     private String[][] map;
-    private static int size = 10;
+    private static int size = 5;
+    private final Semaphore semaphore;
 
     public Mapa() {
         this.map = new String[size][size]; // Inicializamos el mapa con ceros
         generarMapa();
+        this.semaphore = new Semaphore(1);
     }
 
     private void generarMapa() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-
                 this.map[i][j] = " * ";
-                
             }
         }
+        addCueva();
     }
 
     public void showMapa() {
@@ -40,6 +43,29 @@ public class Mapa {
 
     }
 
+    public void entrarCueva(Monstruo monstruo)throws InterruptedException{
+        semaphore.acquire();
+        monstruo.setEncuevado(true);
+        map[monstruo.getPosX()][monstruo.getPosY()] = " * ";
+    } 
+
+    public void salirCueva(Monstruo monstruo)throws InterruptedException{
+        monstruo.setEncuevado(false);
+        semaphore.release();
+
+    }
+
+    public synchronized void addCueva (){
+        int x = (int) (Math.random() * size);
+        int y = (int) (Math.random() * size);
+        if (this.map[x][y].equals(" * ")) {
+            map[x][y] = " A ";
+        } else {
+            addCueva();
+        }
+    }
+
+    
     public synchronized void addMonstruo(Monstruo monstruo) {
         int x = (int) (Math.random() * size);
         int y = (int) (Math.random() * size);
@@ -73,7 +99,7 @@ public class Mapa {
 
     }
 
-    public synchronized void moverMonstruo(Monstruo monstruo) {
+    public synchronized void moverMonstruo(Monstruo monstruo) throws InterruptedException {
         int x = (int) (Math.random() * size);
         int y = (int) (Math.random() * size);
 
@@ -81,6 +107,8 @@ public class Mapa {
             map[x][y] = " M ";
             this.map[monstruo.getPosX()][monstruo.getPosY()] = " * ";
             monstruo.setPos(x, y);
+        }else if (this.map[x][y].equals(" A ")) {
+            entrarCueva(monstruo);
         } else {
             moverMonstruo(monstruo);
         }
@@ -90,7 +118,6 @@ public class Mapa {
         int x = (int) (Math.random() * size);
         int y = (int) (Math.random() * size);
         if (this.map[x][y].equals(" S ")) {
-            map[x][y] = " * ";
 
             System.out.println(cazador.getNombre() + " a conseguido un poder");
             moverCazador(cazador);
@@ -121,7 +148,7 @@ public class Mapa {
             }
 
         }
-        if (this.map[x][y].equals(" C ")) {
+        if (this.map[x][y].equals(" C ")||this.map[x][y].equals(" A ")) {
             moverCazador(cazador);
         }
         return false;
