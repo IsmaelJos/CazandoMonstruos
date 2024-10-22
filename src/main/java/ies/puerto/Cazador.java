@@ -52,15 +52,15 @@ public class Cazador extends Thread {
         this.posX = posX;
         this.posY = posY;
     }
-    public String getNombre(){
-        return nombre;
-    }
     
     public int getPosX() {
         return posX;
     }
     public int getPosY() {
         return posY;
+    }
+    public String getNombre(){
+        return nombre;
     }
     public int getMonstruosAtrapados(){
         return monstruosAtrapados;
